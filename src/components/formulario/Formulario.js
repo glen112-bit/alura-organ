@@ -1,4 +1,4 @@
-import { CampoTexto, ListaSuspensa, Button } from "../../components"
+import { CampoTexto, ListaSuspensa, Button, Team } from "../../components"
 import { useState } from "react"
 import './formulario.css'
 
@@ -9,19 +9,9 @@ export const Formulario = (props) => {
   const [imagem, setImagem] = useState('')
   const [team, setTeam] = useState('')
 
-  const times = [
-    '',
-    'Programação',
-    'Front-End',
-    'Data Sciense',
-    'Devops',
-    'UX e Design',
-    'Mobile',
-    'Inovação e Gestão',
-  ]
   const clicar = (e) => {
     e.preventDefault()
-    console.log('click', nome, cargo, imagem, team)
+    // console.log('click', nome, cargo, imagem, team)
     props.colaboradorCadastrado ({
       nome,
       cargo,
@@ -66,7 +56,8 @@ export const Formulario = (props) => {
       />
       <ListaSuspensa 
         label='Team' 
-        items ={times} 
+        teams = {team.nome}
+        items ={props.teams} 
         valor ={team}
         alterado={valor => setTeam(valor)}
       />

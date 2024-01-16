@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Banner, Formulario, Team } from './components/index.js';
+import { Banner, Formulario, Team  } from './components/index';
 
 function App() {
   const [colaboradores, setColaboradores] = useState([])
@@ -42,21 +42,28 @@ function App() {
   ]
 
   const nuevoColaborador = (colaborador) => {
-    console.log(colaborador)
+    // console.log(colaborador)
     setColaboradores([...colaboradores, colaborador])
   }
   return (
     <div className="App">
      <Banner/>
-      <Formulario colaboradorCadastrado = {colaborador => nuevoColaborador(colaborador)}/> 
+      <Formulario 
+        teams = {
+          teams.map(team => team.nome)
+        }
+        colaboradorCadastrado = {colaborador => 
+        nuevoColaborador(colaborador)}
+      /> 
       {
-        teams.map( team => <
-          Team 
+        teams.map( team => 
+        <Team 
           key = {team.nome}
           nome = {team.nome}
           className = 'team'
           primaryColor = {team.primaryColor}
           secondaryColor = {team.secondaryColor}
+          colaboradores = {colaboradores.filter(colaborador => colaborador.team === team.nome)}
           /> )
       }
 
