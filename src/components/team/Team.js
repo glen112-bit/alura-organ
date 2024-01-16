@@ -9,6 +9,7 @@ export const Team = (props) => {
   // console.log(props.colaboradores.map(colaborador => colaborador.nome))
    console.log(props.colaboradores.map(colaborador => colaborador.imagem))
   return(
+    props.colaboradores.length > 0 &&
     <section className='team' style={{backgroundColor : props.secondaryColor}}>
       <h3 style={{borderBlockColor: props.primaryColor}}>{props.nome}</h3>
       <div className='colaboradores'>
