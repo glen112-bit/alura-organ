@@ -1,0 +1,7 @@
+// export * from './header'
+export * from './banner'
+export * from './campoTexto'
+export * from './formulario'
+export * from './listaSuspensa'
+export * from './button'
+export * from './team'
